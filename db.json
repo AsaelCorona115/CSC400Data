@@ -4,6 +4,22 @@
   {
     "background": "https://color-hex.org/colors/061377.png",
     "course" : "mBot",
+    "lessonNumber": "6",
+    "lessonTitle": "JazzyBot, the comeback",
+    "lessonDescription":
+      "One sensor down and on with the next one! After teaching the mBot how to play 'the lick', it kept dreaming about becoming a musician and now it wants to improvise a little bit using its only instrumen: the built-in-speaker. However, to be able to play changing notes and changing what it plays, we will create an instrument called a Theremin, which changes the tone it plays based on how far an object is using a new sensor: the ultrasonic sensor.  ",
+    "lessonPresentation":"After learning how to use our first sensor and use it to detect the light levels, it is time to learn about the ultrasonic sensor. The ultrasonic sensor is one of the most useful sensors that is integrated in the mBot and we are going to use it a lot in our next programs since it allows us to detect if there are any objects in front of the mBot and even how far they are. The ultrasonic sensor is the part of the mBot at the front that looks like eyes, it works similar as a SONAR by sending an ultrasonic signal from one eye and receiving it on the other. Although humans can't hear it, the mBot calculates the time it takes to receive the echo an uses this information to calculate the distance from the object ahead in centimeters. In this lesson we will use the ultrasonic sensor together with the integrated speakers to program a Theremin, an instrument that tells the mBot to play a tone that changes depending on the distance from an object ahead. ",
+    "lessonObjectives": ["The mBot shall play a tone when it detects something within a range of 15-50cm", "If the object is out of range, (less than 15 cm or more than 50) the mBot will stop playing a tune", "The mBot will play a range of an octave based on equal spacing over the 15-50cm range", "Highest note will be played at 15 cm and lowest at 50"],
+    "lessonRequirements": ["ultrasonic"],
+    "lessonAnalysis":"Our first step to build the Theremin will be to determine the interval values that we will use to change the note values. The 15 cm mark will be the lower bound to trigger the highest note, for the lowest note we will use the 50cm mark and adding a 6-10 cm cushion to make sure it gets played. First we will normalize the range by subtracting the lowest end from the high end (50-15 = 35). Then, to index the notes we will be playing we will use the modulo operator which returns the remainder of a division. We do the following to index the notes our program will play: Subtract the minimum value from the range to scale the range down to the values we are interested in Use the mod operator to get the remainder from dividing the range by the number of intervals.  Subtract the remainder from the range Perform the division to get the index. For instance: we begin knowing that our range is 15-50cm. If we want to be able to play 7 notes (50 -15 = 35, 35/7 = 5) each note would have a 5 cm interval. If the sensor returns a value of 15.72cm, we can subtract the result of the MOD operator to convert the original range into an integer value (15.72 - (15.72MOD5) = 15.72-0.72 = 15). Lastly, by dividing this number by 5 we can calculate a value that represents our note ( 15/5 = 3 which would translate to an E4)",
+    "lessonDesign":"theremin_flowchart.png",
+    "codeAlong":"https://www.youtube.com/embed/67NfXWDI_Nk",
+    "lessonFiles": ["jazzy_bot_comeback_code.png"],
+    "key": "1f"
+  },
+  {
+    "background": "https://color-hex.org/colors/061377.png",
+    "course" : "mBot",
     "lessonNumber": "7",
     "lessonTitle": "Follow the line",
     "lessonDescription":
@@ -49,7 +65,7 @@
     "codeAlong":"https://www.youtube.com/embed/0KxNMLLLSRU",
     "lessonFiles": ["selfParking_code1.png", "selfParking_code2.png"],
     "key": "1j"
-  },
+  }
 ],
 "AutomationLessons":[
     {
